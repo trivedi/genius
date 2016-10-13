@@ -16,13 +16,10 @@ class Song:
         '''
         self._id = id
         self._song_dict = resp_json['song']
-        self.title = resp_json['song']['title']
-        self.lyrics_owner = resp_json['song']['lyrics_owner_id']
-        self.rel_path = resp_json['song']['path']
 
     @property
     def id(self):
-        '''ID of song -> str'''
+        '''ID of song -> int'''
         return self._id
 
     @property
@@ -70,7 +67,7 @@ class Song:
 
     @property
     def lyrics_owner(self):
-        '''ID of lyrics owner -> str'''
+        '''ID of lyrics owner -> int'''
         return self._song_dict['lyrics_owner_id']
 
     @property
@@ -143,4 +140,4 @@ class Song:
         '''
         TODO: should probably separate full API response and the object's response
         '''
-        return json.dumps(self.resp_json)
+        return json.dumps(self._song_dict)
