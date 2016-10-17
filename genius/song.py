@@ -73,9 +73,9 @@ class Song:
     @property
     def path(self):
         '''
-        Return path after the top-level domain -> str
+        Web path of song -> str
 
-        Generally: '{Primary artist name}-{song title}-lyrics'
+        Generally: '/{Primary artist name}-{song title}-lyrics'
         e.g. '/Kendrick-lamar-the-blacker-the-berry-lyrics'
         '''
         return self._song_dict['path']
@@ -141,3 +141,9 @@ class Song:
         TODO: should probably separate full API response and the object's response
         '''
         return json.dumps(self._song_dict)
+
+    def __str__(self):
+        return unicode(self).encode('utf-8')
+
+    def __unicode__(self):
+        return 'unicode representation'
