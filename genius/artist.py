@@ -1,8 +1,8 @@
 '''
-Docstring
+Artist class
 '''
 
-import json
+from json import dumps
 
 
 class Artist:
@@ -112,4 +112,4 @@ class Artist:
         return unicode(self).encode('utf-8')
 
     def __unicode__(self):
-        return self._artist_dict
+        return dumps(self._artist_dict, indent=1)

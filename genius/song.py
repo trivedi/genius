@@ -1,4 +1,7 @@
-import json
+'''
+Song class
+'''
+from json import dumps
 
 
 class Song:
@@ -137,13 +140,10 @@ class Song:
         return 'https://genius.com' + self._song_dict['path']
 
     def __repr__(self):
-        '''
-        TODO: should probably separate full API response and the object's response
-        '''
-        return json.dumps(self._song_dict)
+        return 'Song({}:{})'.format(self._id, self.title)
 
     def __str__(self):
         return unicode(self).encode('utf-8')
 
     def __unicode__(self):
-        return 'unicode representation'
+        return dumps(self._artist_dict, indent=1)

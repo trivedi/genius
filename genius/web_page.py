@@ -1,4 +1,7 @@
-import json
+'''
+WebPage class
+'''
+from json import dumps
 
 
 class WebPage:
@@ -62,13 +65,10 @@ class WebPage:
         return self._page_dict['url']
 
     def __repr__(self):
-        '''
-        TODO: should probably separate full API response and the object's response
-        '''
-        pass
+        return 'WebPage({})'.format(self.url)
 
     def __str__(self):
         return unicode(self).encode('utf-8')
 
     def __unicode__(self):
-        return 'unicode representation'
+        return dumps(self._artist_dict, indent=1)
